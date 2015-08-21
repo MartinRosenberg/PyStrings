@@ -43,7 +43,7 @@ namespace PyString
 			get
 			{
 				// Default arguments + index conversion
-				int step = nStep.HasValue ? nStep.Value : 1;
+				int step = nStep ?? 1;
 				int min = nMin.HasValue ? pyIndex(nMin.Value) : 0;
 				int max = nMax.HasValue ? pyIndex(nMax.Value) : (step < 0 ? -1 : _myValue.Length);
 
