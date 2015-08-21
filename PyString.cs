@@ -9,29 +9,29 @@ namespace PyString
 		public static string Value { get; private set; }
 
 		// Constructor
-		public PyString(string s)
+		public PyString(string value)
 		{
-			Value = s;
+			Value = value;
 		}
 
 		// Implicit conversions
-		public static implicit operator string(PyString s)
-			=> s.ToString();
+		public static implicit operator string(PyString value)
+			=> value.ToString();
 
-		public static implicit operator PyString(string s)
-			=> new PyString(s);
+		public static implicit operator PyString(string value)
+			=> new PyString(value);
 
 		// Convert Python indices to C# ones
-		private int pyIndex(int idx)
-			=> idx < 0 
-				? Value.Length + idx
-				: idx;
+		private int PythonizeIndex(int index)
+			=> index < 0 
+				? Value.Length + index
+				: index;
 
 		// Python substring, part 1
-		public string this[int a] 
-			=> a == -1
-				? this[a, null]
-				: this[a, a + 1];
+		public string this[int index] 
+			=> index == -1
+				? this[index, null]
+				: this[index, index + 1];
 
 		// Python substring, part 2
 		public string this[int? nMin = null, int? nMax = null, int? nStep = null]
@@ -40,8 +40,8 @@ namespace PyString
 			{
 				// Default arguments + index conversion
 				int step = nStep ?? 1;
-				int min = nMin.HasValue ? pyIndex(nMin.Value) : 0;
-				int max = nMax.HasValue ? pyIndex(nMax.Value) : (step < 0 ? -1 : Value.Length);
+				int min = nMin.HasValue ? PythonizeIndex(nMin.Value) : 0;
+				int max = nMax.HasValue ? PythonizeIndex(nMax.Value) : (step < 0 ? -1 : Value.Length);
 
 				// Rebuild string - exception cases
 				if (step == 0)
