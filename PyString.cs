@@ -6,12 +6,12 @@ namespace PyString
 	public class PyString
 	{
 		// Values
-		private static string _myValue;
+		public static string Value { get; private set; }
 
 		// Constructor
 		public PyString(string s)
 		{
-			_myValue = s;
+			Value = s;
 		}
 
 		// Implicit conversions
@@ -28,7 +28,7 @@ namespace PyString
 		// Convert Python indices to C# ones
 		private int pyIndex(int idx)
 		{
-			return idx < 0 ? _myValue.Length + idx : idx;
+			return idx < 0 ? Value.Length + idx : idx;
 		}
 
 		// Python substring, part 1
@@ -45,7 +45,7 @@ namespace PyString
 				// Default arguments + index conversion
 				int step = nStep ?? 1;
 				int min = nMin.HasValue ? pyIndex(nMin.Value) : 0;
-				int max = nMax.HasValue ? pyIndex(nMax.Value) : (step < 0 ? -1 : _myValue.Length);
+				int max = nMax.HasValue ? pyIndex(nMax.Value) : (step < 0 ? -1 : Value.Length);
 
 				// Rebuild string - exception cases
 				if (step == 0)
@@ -64,7 +64,7 @@ namespace PyString
 				int cur = min;
 				while (step > 0 ? cur < max : cur > max)
 				{
-					result.Append(_myValue[cur]);
+					result.Append(Value[cur]);
 					cur += step;
 				}
 
