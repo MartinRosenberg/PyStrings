@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using static System.Console;
 
 namespace PyStrings.Test
 {
