@@ -6,6 +6,20 @@ namespace PyStrings.Test
 	public class PyStringsTests
 	{
 		[Test]
+		public static void PosMinNullMaxNegStep()
+		{
+			PyString ps = new PyString("words");
+			Assert.That(ps[2, null, -1], Is.EqualTo("row"));
+		}
+
+		[Test]
+		public static void NegMinNullMaxPosStep()
+		{
+			PyString ps = new PyString("words");
+			Assert.That(ps[-2, null, 1], Is.EqualTo("ds"));
+		}
+
+		[Test]
 		public static void Pos0Index()
 		{
 			PyString ps = new PyString("words");
