@@ -22,11 +22,9 @@ namespace PyString
 
 		#region Implicit conversions
 
-		public static implicit operator string(PyString value)
-			=> value.ToString();
+		public static implicit operator string(PyString value) => value.ToString();
 
-		public static implicit operator PyString(string value)
-			=> new PyString(value);
+		public static implicit operator PyString(string value) => new PyString(value);
 
 		#endregion Implicit conversions
 
@@ -38,7 +36,7 @@ namespace PyString
 
 		#region Helper methods
 
-		private static int PythonizeIndex(int index)
+		private int PythonizeIndex(int index)
 			=> index < 0 
 				? Value.Length + index
 				: index;
