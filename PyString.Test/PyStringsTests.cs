@@ -6,28 +6,28 @@ namespace PyStrings.Test
 	public class PyStringsTests
 	{
 		[Test]
-		public static void Pos0Idx()
+		public static void Pos0Index()
 		{
 			PyString ps = new PyString("words");
 			Assert.That(ps[0], Is.EqualTo("w"));
 		}
 
 		[Test]
-		public static void PosIdx()
+		public static void PosIndex()
 		{
 			PyString ps = new PyString("words");
 			Assert.That(ps[4], Is.EqualTo("s"));
 		}
 
 		[Test]
-		public static void NegIdx()
+		public static void NegIndex()
 		{
 			PyString ps = new PyString("words");
 			Assert.That(ps[-5], Is.EqualTo("w"));
 		}
 
 		[Test]
-		public static void Neg1Idx()
+		public static void Neg1Index()
 		{
 			PyString ps = new PyString("words");
 			Assert.That(ps[-1], Is.EqualTo("s"));
