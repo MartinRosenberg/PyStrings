@@ -57,33 +57,31 @@ namespace PyStrings
 		{
 			get
 			{
-				// Default arguments + index conversion
 				int step = nStep ?? 1;
-				int min = nMin.HasValue
-					? PythonizeIndex(nMin.Value)
-					: 0;
-				int max = nMax.HasValue
-					? PythonizeIndex(nMax.Value)
-					: (step < 0 ? -1 : Value.Length);
 
-				// Rebuild string - exception cases
 				if (step == 0)
 				{
 					throw new ArgumentOutOfRangeException(nameof(step), "Step size cannot be zero.");
 				}
+				
+				int min = PythonizeIndex(nMin ?? 0);
+				int max = nMax.HasValue
+					? PythonizeIndex(nMax.Value)
+					: step < 0
+						? -1
+						: Value.Length;
+
 				if (Math.Sign(step) != Math.Sign(max - min))
 				{
-					throw new ArgumentOutOfRangeException(nameof(step), "Step size is incorrectly signed for the given bounds values.");
+					throw new ArgumentOutOfRangeException(nameof(step), "Step size is incorrectly signed for the given bounds.");
 				}
-
-				// Rebuild string - general case
+				
 				StringBuilder result = new StringBuilder();
-				for (int i = min; (step > 0) ? (i < max) : (i > max); i += step)
+				for (int i = min; (step > 0 ? i < max : i > max); i += step)
 				{
 					result.Append(Value[i]);
 				}
-
-				// Done!
+				
 				return result.ToString();
 			}
 		}
