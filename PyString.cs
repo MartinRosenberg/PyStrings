@@ -22,15 +22,18 @@ namespace PyString
 
 		#region Implicit conversions
 
-		public static implicit operator string(PyString value) => value.ToString();
+		public static implicit operator string(PyString value)
+			=> value.ToString();
 
-		public static implicit operator PyString(string value) => new PyString(value);
+		public static implicit operator PyString(string value)
+			=> new PyString(value);
 
 		#endregion Implicit conversions
 
 		#region Overrides
 
-		public override string ToString() => Value;
+		public override string ToString()
+			=> Value;
 
 		#endregion Overrides
 
@@ -56,8 +59,12 @@ namespace PyString
 			{
 				// Default arguments + index conversion
 				int step = nStep ?? 1;
-				int min = nMin.HasValue ? PythonizeIndex(nMin.Value) : 0;
-				int max = nMax.HasValue ? PythonizeIndex(nMax.Value) : (step < 0 ? -1 : Value.Length);
+				int min = nMin.HasValue
+					? PythonizeIndex(nMin.Value)
+					: 0;
+				int max = nMax.HasValue
+					? PythonizeIndex(nMax.Value)
+					: (step < 0 ? -1 : Value.Length);
 
 				// Rebuild string - exception cases
 				if (step == 0)
