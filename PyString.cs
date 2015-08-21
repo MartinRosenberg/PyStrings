@@ -16,31 +16,22 @@ namespace PyString
 
 		// Implicit conversions
 		public static implicit operator string(PyString s)
-		{
-			return s.ToString();
-		}
+			=> s.ToString();
 
 		public static implicit operator PyString(string s)
-		{
-			return new PyString(s);
-		}
+			=> new PyString(s);
 
 		// Convert Python indices to C# ones
 		private int pyIndex(int idx)
-		{
-			return idx < 0 ? Value.Length + idx : idx;
-		}
+			=> idx < 0 
+				? Value.Length + idx
+				: idx;
 
 		// Python substring, part 1
-		public string this[int a]
-		{
-			get
-			{
-				return a == -1
-					? this[a, null]
-					: this[a, a + 1];
-			}
-		}
+		public string this[int a] 
+			=> a == -1
+				? this[a, null]
+				: this[a, a + 1];
 
 		// Python substring, part 2
 		public string this[int? nMin = null, int? nMax = null, int? nStep = null]
