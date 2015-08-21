@@ -1,7 +1,6 @@
 using System;
-using String;
 
-namespace pystrings_sharp {
+namespace PyString {
     class Program {
         static void Main(string[] args) {
 
