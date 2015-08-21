@@ -5,35 +5,47 @@ namespace PyString
 {
 	public class PyString
 	{
-		// Values
+		#region Values
+		
 		public static string Value { get; private set; }
 
-		// Constructor
+		#endregion Values
+
+		#region Constructors
+
 		public PyString(string value)
 		{
 			Value = value;
 		}
 
-		// Implicit conversions
+		#endregion Constructors
+
+		#region Implicit conversions
+
 		public static implicit operator string(PyString value)
 			=> value.ToString();
 
 		public static implicit operator PyString(string value)
 			=> new PyString(value);
 
-		// Convert Python indices to C# ones
+		#endregion Implicit conversions
+
+		#region Helper methods
+
 		private int PythonizeIndex(int index)
 			=> index < 0 
 				? Value.Length + index
 				: index;
-
-		// Python substring, part 1
+		
+		#endregion Helper methods
+		
+		#region Indexers
+		
 		public string this[int index] 
 			=> index == -1
 				? this[index, null]
 				: this[index, index + 1];
 
-		// Python substring, part 2
 		public string this[int? nMin = null, int? nMax = null, int? nStep = null]
 		{
 			get
@@ -46,12 +58,10 @@ namespace PyString
 				// Rebuild string - exception cases
 				if (step == 0)
 				{
-					// Special case 1 - a 0 step size isn't allowed, so throw an exception
 					throw new ArgumentOutOfRangeException(nameof(step), "Step size cannot be zero.");
 				}
 				if (Math.Sign(step) != Math.Sign(max - min))
 				{
-					// Special case 2 - step and bounds point in opposite directions
 					throw new ArgumentOutOfRangeException(nameof(step), "Step size is incorrectly signed for the given bounds values.");
 				}
 
@@ -68,5 +78,7 @@ namespace PyString
 				return result.ToString();
 			}
 		}
+
+		#endregion Indexers
 	}
 }
