@@ -38,7 +38,7 @@ namespace PyString
 		}
 
 		// Python substring, part 2
-		public string this[Nullable<int> nMin = null, Nullable<int> nMax = null, Nullable<int> nStep = null]
+		public string this[int? nMin = null, int? nMax = null, int? nStep = null]
 		{
 			get
 			{
