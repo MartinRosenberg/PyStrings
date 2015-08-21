@@ -1,6 +1,6 @@
 using System;
 
-namespace PyString
+namespace PyStrings
 {
 	internal class Program
 	{
@@ -11,7 +11,7 @@ namespace PyString
 			// Test 1
 			// "words"[0] = "w"
 			s = "words";
-			Console.WriteLine(s[-1]);
+			Console.WriteLine(s[0]);
 
 			// Test 2
 			// "words"[1:3] = "or"

@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace PyString
+namespace PyStrings
 {
 	public class PyString
 	{

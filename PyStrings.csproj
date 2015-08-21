@@ -6,7 +6,7 @@
     <ProjectGuid>{70533E53-77E0-45A2-B66A-DBB9336AF5BD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>PyString</AssemblyName>
+    <AssemblyName>PyStrings</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -34,10 +34,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>PyString</RootNamespace>
+    <RootNamespace>PyStrings</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>PyString.Program</StartupObject>
+    <StartupObject>PyStrings.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
