@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PyString.cs" />
+    <Compile Include="StringExtensionMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".git\" />

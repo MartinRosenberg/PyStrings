@@ -18,6 +18,11 @@ namespace PyStrings
 			Value = value;
 		}
 
+		public PyString(char[] value)
+		{
+			Value = new string(value);
+		}
+
 		#endregion Constructors
 
 		#region Implicit conversions
@@ -75,7 +80,7 @@ namespace PyStrings
 				{
 					throw new ArgumentOutOfRangeException(nameof(step), "Step size is incorrectly signed for the given bounds.");
 				}
-				
+
 				StringBuilder result = new StringBuilder();
 				for (int i = min; (step > 0 ? i < max : i > max); i += step)
 				{
