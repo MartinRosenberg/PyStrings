@@ -11,7 +11,7 @@ namespace PyString
 			// Test 1
 			// "words"[0] = "w"
 			s = "words";
-			Console.WriteLine(s[0]);
+			Console.WriteLine(s[-1]);
 
 			// Test 2
 			// "words"[1:3] = "or"

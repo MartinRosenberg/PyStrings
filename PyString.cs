@@ -34,7 +34,12 @@ namespace PyString
 		// Python substring, part 1
 		public string this[int a]
 		{
-			get { return this[a, a + (a <= 0 ? 1 : -1)]; }
+			get
+			{
+				return a == -1
+					? this[a, null]
+					: this[a, a + 1];
+			}
 		}
 
 		// Python substring, part 2
