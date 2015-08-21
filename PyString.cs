@@ -78,11 +78,9 @@ namespace PyStrings
 
 				// Rebuild string - general case
 				StringBuilder result = new StringBuilder();
-				int cur = min;
-				while (step > 0 ? cur < max : cur > max)
+				for (int i = min; (step > 0) ? (i < max) : (i > max); i += step)
 				{
-					result.Append(Value[cur]);
-					cur += step;
+					result.Append(Value[i]);
 				}
 
 				// Done!
