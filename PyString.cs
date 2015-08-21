@@ -30,6 +30,12 @@ namespace PyString
 
 		#endregion Implicit conversions
 
+		#region Overrides
+
+		public override string ToString() => Value;
+
+		#endregion Overrides
+
 		#region Helper methods
 
 		private int PythonizeIndex(int index)
