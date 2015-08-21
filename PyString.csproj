@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="PyString.cs" />
-    <Compile Include="Temp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".git\" />
