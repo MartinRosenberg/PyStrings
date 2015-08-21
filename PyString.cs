@@ -51,12 +51,12 @@ namespace PyString
 				if (step == 0)
 				{
 					// Special case 1 - a 0 step size isn't allowed, so throw an exception
-					throw new ArgumentOutOfRangeException("Step size cannot be zero.");
+					throw new ArgumentOutOfRangeException(nameof(step), "Step size cannot be zero.");
 				}
 				else if (Math.Sign(step) != Math.Sign(max - min))
 				{
 					// Special case 2 - step and bounds point in opposite directions
-					throw new ArgumentOutOfRangeException("Step size is incorrectly signed for the given bounds values.");
+					throw new ArgumentOutOfRangeException(nameof(step), "Step size is incorrectly signed for the given bounds values.");
 				}
 
 				// Rebuild string - general case
