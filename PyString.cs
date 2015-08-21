@@ -1,10 +1,6 @@
 using System;
 using System.Text;
 
-// Code by Ace "ace-n" Nassri
-// Licensed under the MIT license
-// This has only been lightly tested, so use with care...
-
 namespace PyString
 {
 	public class PyString
