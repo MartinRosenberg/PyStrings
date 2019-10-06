@@ -2,6 +2,6 @@
 
 Python-like string indexers for C#.
 
-## Future development
+## Roadmap
 
-May expand to index other kinds of collections. Who knows?
+- [ ] Expand to index other kinds of collections.
